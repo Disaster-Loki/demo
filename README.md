@@ -2,7 +2,7 @@
 
 ## 📋 Sobre o Sistema
 
-Este é um sistema completo de **gerenciamento de usuários** com funcionalidades de:
+Este é um simples sistema de **gerenciamento de usuários**, aplicando os conhecimentos sobre o MailSender com funcionalidades de:
 - ✅ **Registro de usuários** com validação
 - ✅ **Recuperação de senha** via OTP (One-Time Password)
 - ✅ **Alteração de senha** segura
