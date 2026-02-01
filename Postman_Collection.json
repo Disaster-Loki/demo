@@ -1,0 +1,148 @@
+{
+  "info": {
+    "_postman_id": "user-management-api",
+    "name": "User Management API",
+    "description": "Coleção de testes para a API de Gerenciamento de Usuários",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuários",
+      "item": [
+        {
+          "name": "Criar novo usuário",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao@example.com\",\n  \"password\": \"Senha123!\",\n  \"phoneNumber\": \"(11) 99999-9999\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar todos os usuários",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar usuário por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users/550e8400-e29b-41d4-a716-446655440000",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "users", "550e8400-e29b-41d4-a716-446655440000"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recuperação de Senha",
+      "item": [
+        {
+          "name": "Enviar OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/forgot-password/send/joao@example.com",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "forgot-password", "send", "joao@example.com"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verificar OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"joao@example.com\",\n  \"otp\": 123456\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/forgot-password/verify-otp",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "forgot-password", "verify-otp"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Alterar Senha",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"NovaSenha123!\",\n  \"repeatPassword\": \"NovaSenha123!\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/forgot-password/change-password/joao@example.com",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "forgot-password", "change-password", "joao@example.com"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api/v1"
+    }
+  ]
+}
